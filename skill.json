@@ -1,0 +1,50 @@
+{
+  "name": "genpark-sponsored-agent-intent-auction-bid-router-skill",
+  "version": "1.0.0",
+  "description": "Sponsored Agent Intent Auction & Privacy-Preserving Ad Monetization Router (inspired by Sponsored Agents, Meta AI Ad Platform). Runs second-price Vickrey auctions matching consumer query intent with brand bids while preserving organic recommendation neutrality.",
+  "tools": [
+    {
+      "name": "route_sponsored_intent",
+      "description": "Register sponsor campaigns, conduct second-price intent auctions, format transparent sponsored recommendations, and track conversion attribution.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "register_sponsor_campaign",
+              "conduct_intent_auction",
+              "format_sponsored_recommendation",
+              "record_conversion_attribution"
+            ],
+            "description": "Auction routing action."
+          },
+          "campaign_id": {
+            "type": "string"
+          },
+          "brand_name": {
+            "type": "string"
+          },
+          "bid_cpc_usd": {
+            "type": "number"
+          },
+          "target_keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "query_text": {
+            "type": "string"
+          },
+          "winning_campaign_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
